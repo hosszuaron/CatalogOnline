@@ -1,0 +1,39 @@
+﻿@page
+@model OnlineCatalog.Pages.Specializations.IndexModel
+
+@{
+    ViewData["Title"] = "Specializari";
+}
+
+<h1>Lista Specializari</h1>
+
+<p>
+    <a class="btn btn-primary" role="button" asp-page="Create">Adauga Specializare Noua</a>
+</p>
+<table class="table table-striped table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Specialization[0].SpecializationName)
+            </th>
+            <th scope="col">
+                Actiuni
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Specialization)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpecializationName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.SpecializationID" class="btn btn-warning btn-sm" role="button">Editare</a>
+                    <a asp-page="./Details" asp-route-id="@item.SpecializationID" class="btn btn-primary btn-sm" role="button">Vizualizare</a>
+                    <a asp-page="./Delete" asp-route-id="@item.SpecializationID" class="btn btn-danger btn-sm" role="button">Stergere</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

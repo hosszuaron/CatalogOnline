@@ -1,0 +1,33 @@
+﻿@page
+@model OnlineCatalog.Pages.Grades.DeleteModel
+
+@{
+    ViewData["Title"] = "Stergere nota";
+}
+
+<h1>Atentie!</h1>
+
+<h3>Sunteti sigur ca doriti sa stergeti aceasta nota?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade.GradeValue)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grade.GradeValue)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Grade.Student)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Grade.Student.StudentID)
+        </dd>
+    </dl>
+
+    <form method="post">
+        <input type="hidden" asp-for="Grade.GradeID" />
+        <input type="submit" value="Sterge" class="btn btn-danger" />
+        <a class="btn btn-warning" role="button" asp-page="./Index">Inapoi</a>
+    </form>
+</div>
